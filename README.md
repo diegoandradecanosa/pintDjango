@@ -13,6 +13,8 @@ problemas en su desarrollo utilizando versiones distintas.
 4. [Creando la zona admin](#creando-la-zona-admin)
 4. [Creando nuestras primeras vistas](#creando-nuestras-primeras-vistas)
 5. [Mejorando nuestras vistas](#mejorando-nuestras-vistas)
+6. [Usando plantillas](#usando-plantillas)
+7. [Usando formularios](#usando-formularios)
 ---
 ### Configurando el entorno e iniciando el proyecto
 
@@ -267,7 +269,38 @@ git checkout Paso4
 
 Ahora podemos comprobar lo cambios en dicho fichero y el resulta que surte visitando [http://localhost:8000/reviews/](http://localhost:8000/reviews/)
 
+---
 ### Usando plantillas
+
+En nuestras vistas actuales aparece mezclado el código que utilizamos para acceder a los datos 
+y el código html que formatea su aspecto lo cual resulta engorroso  poco práctico.
+Afortunadamente Django nos permite desacoplar el código de la vista de el
+código html que la de formato a través de un sistema de plantillas (templates).
+
+En este paso del tutorial vamos a reescribir nuestras 2 vistas utilizando plantillas. 
+Antes de hacerlo tenemos que crear un directorio donde poner nuestras plantillas.
+
+```
+mkdir -p reviews/templates/reviews/
+```
+
+Ejecutando el siguiente comando actualizamos los ficheros para este paso.
+
+```
+git checkout Paso5
+```
+Obtenemos 3 ficheros html para las plantillas: index.html, detail.html y base.html. Este último es un esqueleto que define el marco cuyo contenido luego se particulariza para cada plantilla concreta. A este mecanismo se le llama herencia de plantillas y si examinas esos 3 ficheros podrás entender fácilmente cómo funciona.
+
+También obtenemos varios ficheros alojados en la carpeta reviews/static/reviews. Estos ficheros contienen hojas de estilo (css) y fichero javascript (js) que enriquecen el aspecto de la página web. El uso de ficheros estáticos como imágenes u hoja de estilo se realizar a través de una app que se llama staticfiles y que viene cargada por defecto. Poniendo los ficheros en un subdirectorio static dentro del directorio de mi app podremos acceder a ellos. Para ver un ejemplo de cómo referenciarlos inspecciona la plantilla base.html, donde aparecen varias referencias.
+
+Finalmente el fichero views.py también ha sido actualizado. Ahora la información se recupera de la base de datos y se le pasa a la plantilla a través de un diccionario llamado contexto. La vista ejecuta la plantilla correspondiente pasándole como argumento dicho contexto y esta ejecución genera un html que se convierte en el resultado de la vista.
+
+---
+### Usando formularios
+
+
+
+
 
 
 
