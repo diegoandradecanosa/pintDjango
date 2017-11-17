@@ -17,4 +17,34 @@
 	</div>
 	<hr> {% endfor %}
 </ul>
-{% else %} No hay reviews para este producto {% endif %} {% else %} Producto no encontrado {% endif %} {% endblock %}
+{% else %} No hay opiniones para este producto {% endif %} {% else %} Producto no encontrado {% endif %} 
+
+
+
+<div class="container">
+	<!-- Trigger the modal with a button -->
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Nueva opinión</button>
+  
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+	  <div class="modal-dialog">
+	  
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-body">
+			<p>{% load crispy_forms_tags %}
+						  {% crispy new_review_form new_review_form.helper %}
+					  </p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		  </div>
+		</div>
+		
+	  </div>
+	</div>
+	
+  </div>
+  <BR>
+
+{% endblock %}
