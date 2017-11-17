@@ -298,6 +298,36 @@ Finalmente el fichero views.py también ha sido actualizado. Ahora la informaci�
 ---
 ### Usando formularios
 
+En este punto del tutorial queremos incorporar a la aplicacin 2 tipos de formularios: uno que nos permita añadir nuevos productos y otro que nos permita añadir nuevas reviews a un producto.
+
+Para mejorar el aspecto de nuestros formularios y facilitar su creación vamos a utilizar un app de Django llamada django-crispy-forms [1]. Para instarla ejecutaremos el siguiente comando.
+
+```
+sudo pip3 install --upgrade django-crispy-forms
+```
+y añadir en el fichero settings.py a la variable INSTALLED_APPS la entrada cripsy_forms
+
+```
+INSTALLED_APPS = [
+    ...
+    'crispy_forms',
+]
+```
+Ejecutando el siguiente comando actualizamos los ficheros para este paso.
+
+```
+git checkout Paso6
+```
+
+Los que vamos a recuperar es un nuevo fichero forms.py en el que vamos a encontrar la definición de los dos formularios que queremos añadir: añadir producto y añadir opinión. Una nueva versión de views.py donde las vistas correspondientes van a recibir los parámetros de dichos formularios y los van a añadir a la base de datos. Nuevas versiones de las templates, base.html, index.html y product_detail.html preparadas para mostrar los formularios correspondientes.
+
+
+
+
+
+
+[1] Django crispy forms https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms
+
 
 
 
