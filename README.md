@@ -15,6 +15,7 @@ problemas en su desarrollo utilizando versiones distintas.
 5. [Mejorando nuestras vistas](#mejorando-nuestras-vistas)
 6. [Usando plantillas](#usando-plantillas)
 7. [Usando formularios](#usando-formularios)
+8. [Usando usuarios] (#usando-usuarios)
 ---
 ### Configurando el entorno e iniciando el proyecto
 
@@ -321,9 +322,12 @@ git checkout Paso6
 
 Los que vamos a recuperar es un nuevo fichero forms.py en el que vamos a encontrar la definición de los dos formularios que queremos añadir: añadir producto y añadir opinión. Una nueva versión de views.py donde las vistas correspondientes van a recibir los parámetros de dichos formularios y los van a añadir a la base de datos. Nuevas versiones de las templates, base.html, index.html y product_detail.html preparadas para mostrar los formularios correspondientes.
 
+---
+### Usando usuarios
 
+En este punto del tutorial nos gustaría que la aplicación tenga usuarios y que ciertas funcionalidades de nuestra aplicación sólo las puedan utilizar ciertos tipos de usuarios, por ejemplo, no queremos que cualquier usuario pueda crear nuevos productos.
 
-
+Para ello nos vamos a utilizar el sistema de gestión de usuarios de django que ya viene habilitado a través de la app auth. Esta aplicación ya se encuentra habilitada por defecto en el fichero settings.py
 
 
 [1] Django crispy forms https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms
