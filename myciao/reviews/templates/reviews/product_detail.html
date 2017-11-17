@@ -20,6 +20,7 @@
 {% else %} No hay opiniones para este producto {% endif %} {% else %} Producto no encontrado {% endif %} 
 
 
+{% if request.user.is_authenticated %}
 
 <div class="container">
 	<!-- Trigger the modal with a button -->
@@ -46,5 +47,34 @@
 	
   </div>
   <BR>
+
+	{%else%}
+	<div class="container">
+		{{loginError}}<BR>				
+		<!-- Trigger the modal with a button -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login</button>
+	
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+			
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-body">
+						<p>{% load crispy_forms_tags %}
+							{% crispy login_form login_form.helper %}
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+	<BR>
+	{%endif%}
 
 {% endblock %}
