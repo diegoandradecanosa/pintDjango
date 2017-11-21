@@ -14,63 +14,74 @@
 </div>
 <hr> {% endfor %} {% else %}
 <p> No existe ningún producto </p>
-{% endif %} 
-
-{% if request.user.is_authenticated %}
+{% endif %} {% if request.user.is_authenticated %}
 <div class="container">
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Nuevo producto</button>
+	<!-- Trigger the modal with a button -->
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Nuevo producto</button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-body">
-          <p>{% load crispy_forms_tags %}
-						{% crispy new_product_form new_product_form.helper %}
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<!-- Modal content-->
+
+					<p>{% load crispy_forms_tags %} {% crispy new_product_form new_product_form.helper %}
 					</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-<BR>
-
-	{%else%}
-	<div class="container">
-	{{loginError}}<BR>
-		<!-- Trigger the modal with a button -->
-		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login</button>
-	
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog">
-			
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-body">
-						<p>{% load crispy_forms_tags %}
-							{% crispy login_form login_form.helper %}
-						</p>
-					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 					</div>
 				</div>
-				
 			</div>
 		</div>
-		
 	</div>
+
+
+</div>
+<BR> {%else%}
+<div class="container">
+	{{loginError}}
 	<BR>
-	{%endif%}
+	<!-- Trigger the modal with a button -->
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Login</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+								
+												</button>
 
 
-{% endblock %}
+				</div>
+				<div class="modal-body">
+					<div role="tabpanel">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#loginTab" aria-controls="loginTab" role="tab" data-toggle="tab">Login</a>
+
+							</li>
+							<li role="presentation"><a href="#signupTab" aria-controls="signupTab" role="tab" data-toggle="tab">Registrarse</a>
+
+							</li>
+						</ul>
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="loginTab">
+								<p>{% load crispy_forms_tags %} {% crispy login_form login_form.helper %}
+								</p>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="signupTab">
+								<p>{% load crispy_forms_tags %} {% crispy signup_form signup_form.helper %}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<BR> {%endif%} {% endblock %}
