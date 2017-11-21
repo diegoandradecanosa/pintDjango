@@ -97,4 +97,17 @@
 		<BR> 
 	{%endif%}
 
+	<BR>
+		Últimos tweets sobre este producto:
+		{% if tweets.statuses %}
+		<ul>
+		{% for r in tweets.statuses %}
+		<li> {{ r.text }}
+		{% endfor %}
+		</ul>
+		{% else %}
+		No hay tweets para este producto
+		{% endif %}
+
+
 {% endblock %}

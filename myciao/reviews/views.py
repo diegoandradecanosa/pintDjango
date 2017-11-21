@@ -5,7 +5,23 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
+import oauth2 as oauth
+import json
+import urllib 
 
+def getTweets(name):
+	CONSUMER_KEY = "TUL6EkKRem40IN6g0h5vCP48V"
+	CONSUMER_SECRET = "Rr9yPevUcXSaFotKBERt4fwtwOiksVkgPa3BIipka9olMuy1DB"
+	ACCESS_KEY = "1326479131-VFOliimmy4ctq5SWYRVC7GYofLP6guC0dSqUlvE"
+	ACCESS_SECRET = "rwr4KRYR0IS7kOfnCYF2EoqIEscxOW7OqMBFJ264c"
+	consumer = oauth.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
+	access_token = oauth.Token(key=ACCESS_KEY, secret=ACCESS_SECRET)
+	client = oauth.Client(consumer, access_token)
+	params = {'count': '10','q':name,'lang':'es'}
+	twurl = "https://api.twitter.com/1.1/search/tweets.json?"+urllib.parse.urlencode(params)
+	response, data = client.request(twurl)
+	statuses = json.loads(data)
+	return statuses
 
 def signup_view(request):
     if request.method == 'POST':
@@ -75,6 +91,7 @@ def detail(request,product_id):
 			loginError="Error de login"
 
 	newReviewForm=NewReviewForm()		
+	tweets=getTweets(p.name)
 	newReviewForm.helper.form_action = reverse('detail', kwargs={'product_id': p.id})		
 	loginForm=LoginForm()
 	signupForm=SignupForm()
@@ -82,9 +99,9 @@ def detail(request,product_id):
 
 
 	if request.user.is_authenticated:
-		context={'p':p,'reviews_list':reviews_list,'new_review_form':newReviewForm,'user':request.user,'login_form':loginForm,'signup_form':signupForm,'loginError':loginError}
+		context={'p':p,'reviews_list':reviews_list,'new_review_form':newReviewForm,'user':request.user,'login_form':loginForm,'signup_form':signupForm,'loginError':loginError,'tweets':tweets}
 	else:
-		context={'p':p,'reviews_list':reviews_list,'new_review_form':newReviewForm,'login_form':loginForm,'signup_form':signupForm,'loginError':loginError}
+		context={'p':p,'reviews_list':reviews_list,'new_review_form':newReviewForm,'login_form':loginForm,'signup_form':signupForm,'loginError':loginError,'tweets':tweets}
 
 
 	return render(request,'reviews/product_detail.html',context)
