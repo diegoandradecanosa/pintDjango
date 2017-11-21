@@ -325,9 +325,16 @@ Los que vamos a recuperar es un nuevo fichero forms.py en el que vamos a encontr
 ---
 ### Usando usuarios
 
-En este punto del tutorial nos gustaría que la aplicación tenga usuarios y que ciertas funcionalidades de nuestra aplicación sólo las puedan utilizar ciertos tipos de usuarios, por ejemplo, no queremos que cualquier usuario pueda crear nuevos productos.
+En este punto del tutorial nos gustaría que la aplicación tenga usuarios y que ciertas funcionalidades de nuestra aplicación sólo las puedan utilizar ciertos tipos de usuarios, por ejemplo, no queremos que cualquier usuario pueda crear nuevos productos sólo aquellos que formen parte del staff (ver zona de administración)
 
-Para ello nos vamos a utilizar el sistema de gestión de usuarios de django que ya viene habilitado a través de la app auth. Esta aplicación ya se encuentra habilitada por defecto en el fichero settings.py
+Para ello nos vamos a utilizar el sistema de gestión de usuarios de django que ya viene habilitado a través de la app auth. Esta aplicación ya se encuentra habilitada por defecto en el fichero settings.py. Luego, con ayuda de los crispy-forms crearemos los correspondientes formulario de login y registro de usuarios, y una vista específica para hacer logout. Todos estos cambios estarán disponibles ejecutando el comando
+
+```
+git checkout Paso7
+```
+Inspecciona los cambios realizados en los ficheros forms.py, views.py, base.html, index.html, product_detail.html, e inspeccionar el contenido de la nueva template signup.html
+
+
 
 
 [1] Django crispy forms https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms
