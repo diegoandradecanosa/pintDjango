@@ -46,6 +46,10 @@ def index(request):
 		name=request.POST['name']
 		barcode=request.POST['barcode']
 		p=Product(name=name,barcode=barcode)
+		if 'image' in request.FILES:
+			p=Product(name=name,barcode=barcode,image=request.FILES['image'])
+		else:
+			p=Product(name=name,barcode=barcode)
 		p.save()
 	if 'username' in request.POST:
 		username = request.POST['username']

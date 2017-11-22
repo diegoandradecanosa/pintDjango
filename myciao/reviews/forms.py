@@ -52,6 +52,9 @@ class NewProductForm(forms.Form):
             required=True
             )
 
+    image = forms.FileField()
+            
+
     def __init__(self, *args, **kwargs):
         super(NewProductForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()            
