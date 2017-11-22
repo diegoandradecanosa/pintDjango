@@ -15,8 +15,9 @@ problemas en su desarrollo utilizando versiones distintas.
 5. [Mejorando nuestras vistas](#mejorando-nuestras-vistas)
 6. [Usando plantillas](#usando-plantillas)
 7. [Usando formularios](#usando-formularios)
-8. [Usando usuarios] (#usando-usuarios )
-9. [Integrando con APIs de terceros] (#integrando-con-apis-de-terceros )
+8. [Usando usuarios](#usando-usuarios )
+9. [Integrando con APIs de terceros](#integrando-con-apis-de-terceros )
+10. [Trabajando con ficheros estticos(#trabajando-con-fichero-estáticos)
 
 ---
 ### Configurando el entorno e iniciando el proyecto
@@ -346,6 +347,31 @@ Los ficheros correspondientes a este paso se pueden actualizar ejecutando el sig
 git checkout Paso8
 ```
 En views.py hay una función nueva que se llama getTweets y que recuperar estos 10 últimos tweets. En la vista detail estos tweets se pasan a la plantilla a través del contexto. Al final de la plantilla product_detail.html tenemos el código que recorrer la lista de tweets y los muestra.
+
+---
+### Trabajando con ficheros estáticos
+
+Ahora vamos a aprender como trabajar y referenciar ficheros estáticos como imágenes o ficheros css desde Django. El código que estamos utilizando ya incorpora esta característica. Por ejemplo, para utilizar la librería bootstrap en la plantilla base.html veo que tenemos el siguiente código.
+
+```
+<link href="{% static "reviews/vendor/bootstrap/css/bootstrap.min.css"%}" rel="stylesheet">
+```
+Es decir, veo que existe una referencia a un fichero estático que se encuentra en reviews/vendor/bootstrap/css/bootstrap.min.css 
+Realmente dicho fichero se encuentra en la carpeta reviews/static con lo que sabemos que todos los ficheros estáticos que queremos que sean accesible a través de la macro 
+
+```
+{% static "carpeta1/carpeta2/fichero.ext" %}
+```
+
+El uso de esta característica de Django es especialmente útil para trabajar ficheros tales como hojas de estilos, fondos o logos de nuestra aplicación web. 
+
+Sin embargo, si queremos usar con ficheros subidos por los usuarios a través de la aplicación web, por ejemplo para permitir a los usuarios usar imágenes que se asocien a nuestros productos de la base de datos, deberíamos utilizar la caracterstica media de Django.La nueva versión de los ficheros que usa esta característica se puede usar utilizando el comando.
+
+```
+git checkout Paso9
+```
+
+El modelo y el formulario de producto ahora tienen un campo más "image" que se usará para asociar una imagen distinta a cada producto. Si no se especifica utiliza por defecto una imagen predeterminada "700x300.png". La template se actualiza automáticamente, pero en la vista tenemos que añadir código para que cuando esta imagen esté presente, la suba al servidor y guarde la referencia en la entrada correspondiente de la base de datos.
 
 [1] Django crispy forms https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms
 
