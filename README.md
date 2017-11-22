@@ -17,7 +17,7 @@ problemas en su desarrollo utilizando versiones distintas.
 7. [Usando formularios](#usando-formularios)
 8. [Usando usuarios](#usando-usuarios )
 9. [Integrando con APIs de terceros](#integrando-con-apis-de-terceros )
-10. [Trabajando con ficheros estticos(#trabajando-con-fichero-estáticos)
+10. [Trabajando con ficheros estáticos](#trabajando-con-fichero-estáticos)
 
 ---
 ### Configurando el entorno e iniciando el proyecto
