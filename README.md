@@ -15,7 +15,9 @@ problemas en su desarrollo utilizando versiones distintas.
 5. [Mejorando nuestras vistas](#mejorando-nuestras-vistas)
 6. [Usando plantillas](#usando-plantillas)
 7. [Usando formularios](#usando-formularios)
-8. [Usando usuarios] (#usando-usuarios)
+8. [Usando usuarios] (#usando-usuarios )
+9. [Integrando con APIs de terceros] (#integrando-con-apis-de-terceros )
+
 ---
 ### Configurando el entorno e iniciando el proyecto
 
@@ -334,8 +336,16 @@ git checkout Paso7
 ```
 Inspecciona los cambios realizados en los ficheros forms.py, views.py, base.html, index.html, product_detail.html, e inspeccionar el contenido de la nueva template signup.html
 
+---
+### Integrando con APIs de terceros
 
+En la vista de detalle de producto vamos a mostrar una lista de los 10 últimos tweets que contienen el nombre el producto. 
+Los ficheros correspondientes a este paso se pueden actualizar ejecutando el siguiente comando.
 
+```
+git checkout Paso8
+```
+En views.py hay una función nueva que se llama getTweets y que recuperar estos 10 últimos tweets. En la vista detail estos tweets se pasan a la plantilla a través del contexto. Al final de la plantilla product_detail.html tenemos el código que recorrer la lista de tweets y los muestra.
 
 [1] Django crispy forms https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms
 
