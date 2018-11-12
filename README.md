@@ -39,7 +39,7 @@ En este punto tendrás que clonar el Paso 0 de este repositorio para empezar a t
 ```
 git clone https://github.com/diegoandradecanosa/pintDjango 
 cd pintDjango
-git checkout Paso0
+git checkout --force Paso0
 ```
 Ahora, dentro del directorio del repositorio (pintDjango) vamos a crear el repositorio
 
@@ -164,7 +164,7 @@ INSTALLED_APPS = [
 Ahora tenemos que crear el modelo de base de datos que dará soporte a esta nueva app. Tendremos 2 tablas Product y Review, que contendrán la informacin de los productos y de las opiniones sobre estos productos, y que por lo tanto estarán relacionadas entre si. Para actualizar este fichero deberás ejecutar el siguiente comando.
 
 ```
-git checkout Paso1
+git checkout --force Paso1
 ```
 
 Ahora podemos examinar el nuevo contenido del fichero models.py.
@@ -224,7 +224,7 @@ Si visitamos la siguiente dirección [http://127.0.0.1:8000/admin](http://127.0.
 En su estado por defecto esta zona de administración sólo nos permite realizar operaciones CRUD (create, read, update and delete) sobre los usuarios y los grupos del app de autenticación (auth). Si queremos por ejemplo dar acceso a las tablas Product y Review de nuestra nueva aplicación deberemos indicarlo exprésamente en el fichero reviews/admin.py Para actualizar dicho fichero debemos ejecutar el siguiente comando
 
 ```
-git checkout Paso2
+git checkout --force Paso2
 ```
 
 Ahora puedes examinar el nuevo contenido del fichero reviews/admin.py.
@@ -249,7 +249,7 @@ componentes fundamentales de Django. La creación de una primera vista que devue
 Recupera estos cambios del repositorio ejecutando el comando
 
 ```
-git checkout Paso3
+git checkout  --force Paso3
 ```
 Ahora puedes inspeccionar el nuevo contenido de los ficheros reviews/views.py, reviews/urls.py y myciao/urls.py.
 Como podrás comprobar hemos definido dos vistas: index y detail. Index muestra un simple "Hola Mundo" y detail muestra un "Hola Mundo id" donde id es un identifidor numérico que se pasa a través de la url. A dichas vistas se puede llegar a través de las urls: [http://localhost:8000/reviews/](http://localhost:8000/reviews/) y [http://localhost:8000/reviews/id/](http://localhost:8000/reviews/id/). En la segunda url debemos sustituir id por un número entero.
@@ -268,7 +268,7 @@ detail nos gustarı́a que mostrase el nombre del producto y una lista de las
 opiniones que tienen dicho producto. Para ello necesitamos carga una nueva versión del fichero reviews/views.py.
 
 ```
-git checkout Paso4
+git checkout --force Paso4
 ```
 
 Ahora podemos comprobar lo cambios en dicho fichero y el resulta que surte visitando [http://localhost:8000/reviews/](http://localhost:8000/reviews/)
@@ -291,7 +291,7 @@ mkdir -p reviews/templates/reviews/
 Ejecutando el siguiente comando actualizamos los ficheros para este paso.
 
 ```
-git checkout Paso5
+git checkout --force Paso5
 ```
 Obtenemos 3 ficheros html para las plantillas: index.html, detail.html y base.html. Este último es un esqueleto que define el marco cuyo contenido luego se particulariza para cada plantilla concreta. A este mecanismo se le llama herencia de plantillas y si examinas esos 3 ficheros podrás entender fácilmente cómo funciona.
 
@@ -320,7 +320,7 @@ INSTALLED_APPS = [
 Ejecutando el siguiente comando actualizamos los ficheros para este paso.
 
 ```
-git checkout Paso6
+git checkout --force Paso6
 ```
 
 Los que vamos a recuperar es un nuevo fichero forms.py en el que vamos a encontrar la definición de los dos formularios que queremos añadir: añadir producto y añadir opinión. Una nueva versión de views.py donde las vistas correspondientes van a recibir los parámetros de dichos formularios y los van a añadir a la base de datos. Nuevas versiones de las templates, base.html, index.html y product_detail.html preparadas para mostrar los formularios correspondientes.
@@ -333,7 +333,7 @@ En este punto del tutorial nos gustaría que la aplicación tenga usuarios y que
 Para ello nos vamos a utilizar el sistema de gestión de usuarios de django que ya viene habilitado a través de la app auth. Esta aplicación ya se encuentra habilitada por defecto en el fichero settings.py. Luego, con ayuda de los crispy-forms crearemos los correspondientes formulario de login y registro de usuarios, y una vista específica para hacer logout. Todos estos cambios estarán disponibles ejecutando el comando
 
 ```
-git checkout Paso7
+git checkout --force Paso7
 ```
 Inspecciona los cambios realizados en los ficheros forms.py, views.py, base.html, index.html, product_detail.html, e inspeccionar el contenido de la nueva template signup.html
 
@@ -344,7 +344,7 @@ En la vista de detalle de producto vamos a mostrar una lista de los 10 últimos 
 Los ficheros correspondientes a este paso se pueden actualizar ejecutando el siguiente comando.
 
 ```
-git checkout Paso8
+git checkout --force Paso8
 ```
 En views.py hay una función nueva que se llama getTweets y que recuperar estos 10 últimos tweets. En la vista detail estos tweets se pasan a la plantilla a través del contexto. Al final de la plantilla product_detail.html tenemos el código que recorrer la lista de tweets y los muestra.
 
@@ -368,7 +368,7 @@ El uso de esta característica de Django es especialmente útil para trabajar fi
 Sin embargo, si queremos usar con ficheros subidos por los usuarios a través de la aplicación web, por ejemplo para permitir a los usuarios usar imágenes que se asocien a nuestros productos de la base de datos, deberíamos utilizar la caracterstica media de Django.La nueva versión de los ficheros que usa esta característica se puede usar utilizando el comando.
 
 ```
-git checkout Paso9
+git checkout --force Paso9
 ```
 
 El modelo y el formulario de producto ahora tienen un campo más "image" que se usará para asociar una imagen distinta a cada producto. Si no se especifica utiliza por defecto una imagen predeterminada "700x300.png". La template se actualiza automáticamente, pero en la vista tenemos que añadir código para que cuando esta imagen esté presente, la suba al servidor y guarde la referencia en la entrada correspondiente de la base de datos.
