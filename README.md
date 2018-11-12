@@ -3,7 +3,7 @@ Este tutorial es una versión reducida del tutorial de Django contenido en la
 y desde el principio. De hecho, para que el alumno pueda tener varios ejemplos
 paso a paso de uso de Django, la página web que implementa el presente tutorial
 es distinta a la implementada en el tutorial original. **El presente tutorial ha sido
-desarrollado utilizando la versión 1.11.7 de Django y la versión 3.6 de Python.** Es posible que haya pequeños
+desarrollado utilizando la versión 2.1.3 de Django y la versión 3.6 de Python.** Es posible que haya pequeños
 problemas en su desarrollo utilizando versiones distintas.
 
 # Índice del tutorial
