@@ -28,6 +28,12 @@ Asumiendo que ya tenemos instalado Python3 en nuestro equipo, debemos asegurarno
 sudo pip3 install django
 sudo pip3 install django-common
 ```
+or in Ubuntu directly
+
+```
+sudo apt install python3-django
+sudo apt install python3-django-common
+```
 
 Comprobaremos qué versió de Django tenemos instalada ejecutando el comando
 
@@ -103,9 +109,10 @@ En este punto, también es interesante fijarnos en otros aspectos de la configur
 En este punto, y para inicializar nuestra base de datos con aquellas tablas que darán soporte a estas apps que vienen instaladas por defecto, deberemos ejecutar la siguiente secuencia de comandos
 
 ```
-python3 manage.py makemigration
+python3 manage.py makemigrations
 python3 manage.py migrate
 ```
+
 Esta secuencia de comandos, muy popular entre los usuarios de Django, deberá ser ejecutada cada vez que hagamos un cambio en nuestro proyecto que implique un cambio en el esquema de la base de datos. El comando makemigrations prepara una serie de scripts que ejecutará estos cambios, y migrate ejecuta dichos scripts. 
 
 Es conveniente en este punto crear un superusuario para el sistema de autenticación. Usaremos el comando.
@@ -138,6 +145,7 @@ Es interesante examinar el listado de ficheros que Django incluye inicialmente e
 ```
 ls -R reviews
 ```
+
 La salida debería ser algo como lo siguiente.
 
 ```
@@ -178,7 +186,7 @@ Como vemos a cada atributo se le asigna un
 valor y dicho valor define el tipo de campo de la base de datos asociado a dicho
 atributo. Es de especial interés el campo product dentro de clase Review que
 establece la relación entre la clase Model y la clase Review. En [esta página del
-manual de Django](https://docs.djangoproject.com/en/1.11/ref/models/fields/) tenéis una lista de los tipos de campos que se pueden definir.
+manual de Django](https://docs.djangoproject.com/en/2.1/ref/models/fields/) tenéis una lista de los tipos de campos que se pueden definir.
 También hemos definido un método unicode que será utilizado luego por
 Django para visualizar el contenido de una instancia de una clase determinada.
 
