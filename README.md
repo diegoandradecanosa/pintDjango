@@ -25,7 +25,8 @@ problemas en su desarrollo utilizando versiones distintas.
 Asumiendo que ya tenemos instalado Python3 en nuestro equipo, debemos asegurarnos de instalar la última versión disponible de Django ejecutando el comando
 
 ```
-sudo pip install django
+sudo pip3 install django
+sudo pip3 install django-common
 ```
 
 Comprobaremos qué versió de Django tenemos instalada ejecutando el comando
