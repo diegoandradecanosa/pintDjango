@@ -385,6 +385,19 @@ El modelo y el formulario de producto ahora tienen un campo más "image" que se 
 [1] Django crispy forms https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms
 
 
+---
+### Testing en Django
+
+```
+git checkout --force Paso10
+```
+
+A modo de ejemplo, se han incluido dos tests en la aplicación reviews, bajo el
+directorio `test`. En `test_models.py` probamos la creación y obtención de
+atributos de nuestros modelos: productos y opiniones. En `test_views.py`,
+simplemente usamos la clase `Client` que proporciona Django para probar un
+login y la obtención de Tweets.
+
 
 
 
