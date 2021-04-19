@@ -25,10 +25,10 @@ problemas en su desarrollo utilizando versiones distintas.
 Asumiendo que ya tenemos instalado Python3 en nuestro equipo, debemos asegurarnos de instalar la última versión disponible de Django ejecutando el comando
 
 ```
-sudo pip3 install django
+sudo pip3 install django=2.1.3
 sudo pip3 install django-common
 ```
-or in Ubuntu directly
+~~or in Ubuntu directly~~
 
 ```
 sudo apt install python3-django
