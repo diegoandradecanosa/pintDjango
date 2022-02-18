@@ -10,15 +10,15 @@ class Product(models.Model):
     name=models.CharField(max_length=100)
     image=models.ImageField(upload_to=content_file_name,default="/product/700x300.png")
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
 class Review(models.Model):
-        product=models.ForeignKey(Product)
+        product=models.ForeignKey(Product,on_delete=models.CASCADE)
         title=models.CharField(max_length=100)
         text=models.CharField(max_length=500)
 
-        def __unicode__(self):
+        def __str__(self):
             return self.title
 
